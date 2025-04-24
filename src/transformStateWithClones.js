@@ -19,7 +19,6 @@ function transformStateWithClones(state, actions) {
       for (const key in action.extraData) {
         newState[key] = action.extraData[key];
       }
-      result.push(newState);
       oldState = newState;
     }
 
@@ -29,7 +28,6 @@ function transformStateWithClones(state, actions) {
       for (const key of action.keysToRemove) {
         delete newState[key];
       }
-      result.push(newState);
       oldState = newState;
     }
 
@@ -39,9 +37,9 @@ function transformStateWithClones(state, actions) {
       for (const key in newState) {
         delete newState[key];
       }
-      result.push(newState);
       oldState = newState;
     }
+    result.push(newState);
   }
 
   return result;
