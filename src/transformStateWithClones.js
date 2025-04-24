@@ -39,7 +39,7 @@ function transformStateWithClones(state, actions) {
       }
       oldState = newState;
     }
-    result.push(newState);
+    result.push({...newState});
   }
 
   return result;
